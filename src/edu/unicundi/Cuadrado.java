@@ -5,34 +5,31 @@
  */
 package edu.unicundi;
 
+import java.awt.Color;
+
 /**
  *
  * @author JuanJ
  */
 public class Cuadrado extends FiguraGeometrica{
     
-    private final short lado; 
+    private short lado; 
     private float perimetro, area;
+    private final double[] coorX, coorY;
+    private final Color color;
     
-    public Cuadrado(short lado){
-        this.lado = lado;
-        this.area = super.hallarArea(lado);
-        this.perimetro = super.hallarPerimetro(lado);
+    public Cuadrado(double[] coorX, double[] coorY, Color color){
+        this.coorX = coorX;
+        this.coorY = coorY;
+        this.color = color;
     }
 
     public float getPerimetro() {
-        return perimetro;
-    }
-
-    public void setPerimetro(float perimetro) {
-        this.perimetro = perimetro;
+        return this.perimetro;
     }
 
     public float getArea() {
         return area;
     }
 
-    public void setArea(float area) {
-        this.area = area;
-    }   
 }

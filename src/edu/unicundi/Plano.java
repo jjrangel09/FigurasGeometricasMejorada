@@ -16,31 +16,28 @@ import java.awt.Graphics2D;
  */
 public class Plano extends javax.swing.JPanel {
 
+    private int[] coorX;
+    private int[] coorY;
+    private Color color;
+
     /**
      * Creates new form Plano
+     * @param coorX
+     * @param coorY
+     * @param color
      */
-    private int[] aux = new int[8];
-
-    public Plano(int[] aux) {
-        this.aux = aux;
+    public Plano(int[] coorX, int[] coorY, Color color) {
+        this.coorX = coorX;
+        this.coorY = coorY;
+        this.color = color;
         initComponents();
     }
+    
 
+    @Override
     public void paint(Graphics g) {
-        Graphics2D figura = (Graphics2D) g;
-        figura.setStroke(new BasicStroke(8.f));
-        figura.setColor(Color.red);
-        /*
-        figura.drawLine(10, 50, 100, 50);
-        figura.drawLine(100, 50, 100, 200);
-        figura.drawLine(100, 200, 10, 200);
-        figura.drawLine(10, 200, 10, 50);
-        */
-        figura.drawLine(aux[0],aux[1],aux[2],aux[3]);
-        figura.drawLine(aux[2],aux[3],aux[4],aux[5]);
-        figura.drawLine(aux[4],aux[5],aux[6],aux[7]);
-        figura.drawLine(aux[6],aux[7],aux[0],aux[1]);
-
+        g.setColor(this.color);
+        g.fillPolygon(this.coorX, this.coorY, this.coorX.length);
     }
 
     /**
